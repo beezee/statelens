@@ -19,8 +19,8 @@ var modify =
 
 var read =
   jsc.forall("json", function(o) {
-    testLens.read()['a'] = o;
-    return testLens.read().a.b == initState().a.b;
+    testLens.read().b = o;
+    return testLens.read().b == initState().a.b;
   });
 
 console.log("sets values");
