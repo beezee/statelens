@@ -1,6 +1,6 @@
 {
   "name": "statelens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ramda lenses in convenient form for state manipulation",
   "main": "index.js",
   "scripts": {
