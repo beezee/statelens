@@ -1,0 +1,27 @@
+{
+  "name": "statelens",
+  "version": "1.0.0",
+  "description": "Ramda lenses in convenient form for state manipulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/beezee/statelens.git"
+  },
+  "keywords": [
+    "functional",
+    "lenses"
+  ],
+  "author": "beezee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beezee/statelens/issues"
+  },
+  "homepage": "https://github.com/beezee/statelens#readme",
+  "dependencies": {
+    "jsverify": "^0.7.4",
+    "ramda": "^0.22.1"
+  }
+}
