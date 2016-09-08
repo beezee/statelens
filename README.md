@@ -22,28 +22,30 @@ parameters, a setter, getter and initial focus.
 
 ####Example
 
-  var statelens = require('statelens');
+```javascript
+var statelens = require('statelens');
 
-  var state = {a: {b: 0}};
+var state = {a: {b: 0}};
 
-  var get = function() { return state; }
-  var set = function(upd) { state = upd(state); }
+var get = function() { return state; }
+var set = function(upd) { state = upd(state); }
 
-  var lens = statelens(set, get, ['a']);
+var lens = statelens(set, get, ['a']);
 
-  // immutable read
-  lens.read().b = 10;
-  console.log(lens.read().b) // 0
+// immutable read
+lens.read().b = 10;
+console.log(lens.read().b) // 0
 
-  lens.narrow(['b']).set(10)
-  console.log(lens.read().b) // 10
+lens.narrow(['b']).set(10)
+console.log(lens.read().b) // 10
 
-  lens.narrow(['b']).modify(function(n) { return n + 1; });
-  console.log(lens.read().b) // 11
+lens.narrow(['b']).modify(function(n) { return n + 1; });
+console.log(lens.read().b) // 11
+```
 
 ####Setter
 
-(State -> State) -> void
+`(State -> State) -> void`
 
 A function which accepts a state transformation function as it's sole parameter, and it should execute the passed transformation by
 passing in the current state.
@@ -51,13 +53,13 @@ passing in the current state.
 
 ####Getter
 
-() -> State
+`() -> State`
 
 A zero parameter function that returns the current state.
 
 ####Focus
 
-[string|number]
+`[string|number]`
 
 An array of strings and numbers indicating the path in the state structure on which the initial focus is set. For example with a state of
 `{a: [{foo: 'bar'}]}`, a focus of `['a', 0, 'foo']` will be set on the
@@ -69,14 +71,14 @@ The provided constructor returns an object with four functions on it.
 
 ####set
 
-(A) -> void
+`(A) -> void`
 
 Replaces the focus of the current lens with the provided value, and passes
 the resulting state to the lenses Setter.
 
 ####modify
 
-(Focus -> A) -> void
+`(Focus -> A) -> void`
 
 Takes a function from focused portion of the current state to a new value.
 
@@ -86,13 +88,13 @@ resulting state to the lenses Setter.
 
 ####read
 
-() -> Focus
+`() -> Focus`
 
 Returns a deep copy of the focused portion of the current state.
 
 ####narrow
 
-([number|string]) -> StateLens
+`([number|string]) -> StateLens`
 
 Takes a new focus parameter, and returns a new lens focused on the
 concatentation of the original lenses path with the newly provided
